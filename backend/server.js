@@ -1,6 +1,7 @@
 const app = require("./index");
 const connectDatabase = require("./db/Database");
 const cloudinary = require("cloudinary");
+const cors = require("cors");
 require('dotenv').config();
 // Handling uncaught Exception
 process.on("uncaughtException", (err) => {
@@ -14,6 +15,10 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
     path: "config/.env",
   });
 }
+const corsOptions = {
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 // connect db
 connectDatabase();
