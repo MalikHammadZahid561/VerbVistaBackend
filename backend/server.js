@@ -15,10 +15,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
     path: "config/.env",
   });
 }
-const corsOptions = {
-  credentials: true,
-};
-app.use(cors(corsOptions));
+
 
 // connect db
 connectDatabase();
